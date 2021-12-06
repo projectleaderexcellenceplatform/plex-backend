@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -16,5 +18,6 @@ public class ProjectList {
   @Id
   private Long id;
   private String projectName;
+
 
 }

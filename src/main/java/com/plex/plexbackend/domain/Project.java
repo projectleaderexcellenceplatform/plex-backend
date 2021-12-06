@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -19,5 +21,7 @@ public class Project {
   private String title;
   private String shortDescription;
   private String uploader;
+
+
 
 }
