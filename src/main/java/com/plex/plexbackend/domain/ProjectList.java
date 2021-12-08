@@ -19,7 +19,6 @@ import java.util.Set;
 @NoArgsConstructor
 public class ProjectList {
 
-  @JsonProperty
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -27,8 +26,7 @@ public class ProjectList {
   @Column
   private String title;
 
-//  @JsonProperty
-//  @ManyToMany
-//  private Set<Project> projects;
+  @ManyToMany
+  private Set<Project> projects;
 
 }

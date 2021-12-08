@@ -27,7 +27,4 @@ public class Project {
   @ManyToMany
   private Set<Category> categories;
 
-//  @ManyToMany
-//  private Set<Project> projects;
-
 }

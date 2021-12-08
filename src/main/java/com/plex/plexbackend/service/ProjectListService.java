@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProjectListService {
@@ -17,9 +18,12 @@ public class ProjectListService {
     return projectListRepository.findAll();
   }
 
-  public ProjectList makeNewProjectList(ProjectList projectList) {
-    return projectListRepository.save(projectList);
+  public Optional<ProjectList> findProjectListById(String id){
+    return projectListRepository.findById(Long.parseLong(id));
+  }
 
+  public void makeNewProjectList(ProjectList projectList) {
+    projectListRepository.save(projectList);
   }
 
 }
