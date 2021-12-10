@@ -43,7 +43,7 @@ public class MyRunner implements CommandLineRunner {
       int id = jsonProject.getInt("id");
       String name = jsonProject.getString("name");
       String shortdes = jsonProject.getString("shortDescription");
-//      String categories = jsonProject.getString("categories");
+//     String categories = jsonProject.getString("categories");
 
       project.setId((long) id);
       project.setTitle(name);
