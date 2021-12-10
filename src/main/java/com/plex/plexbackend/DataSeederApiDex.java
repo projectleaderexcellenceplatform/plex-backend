@@ -1,5 +1,7 @@
 package com.plex.plexbackend;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.plex.plexbackend.domain.Category;
 import com.plex.plexbackend.domain.Project;
 import com.plex.plexbackend.repository.ProjectRepository;
 import org.json.JSONArray;
@@ -12,6 +14,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.Set;
 
 @Component
 public class DataSeederApiDex implements CommandLineRunner {
@@ -42,13 +45,23 @@ public class DataSeederApiDex implements CommandLineRunner {
       String shortdes = jsonProject.getString("shortDescription");
       JSONObject user = jsonProject.getJSONObject("user");
       String uploader = user.getString("name");
-      JSONObject categories = jsonProject.getJSONObject("categories");
+
+//      JSONArray jsonArrayCat = jsonProject.getJSONArray("categories");
+//      if(jsonArrayCat != null){
+//        int len = jsonArrayCat.length();
+//        for (int y = 0; y<len;y++){
+//        project.setCategories(jsonArrayCat.getJSONObject(i));
+//
+//        }
+//      }
 
 
-      project.setId((long) id);
-      project.setTitle(name);
-      project.setShortDescription(shortdes);
-      project.setUploader(uploader);
+        project.setId((long) id);
+        project.setTitle(name);
+        project.setShortDescription(shortdes);
+        project.setUploader(uploader);
+
+
 
       projectRepository.save(project);
 
