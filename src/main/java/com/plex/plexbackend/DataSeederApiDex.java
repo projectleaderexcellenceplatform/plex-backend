@@ -1,12 +1,9 @@
 package com.plex.plexbackend;
 
-import com.plex.plexbackend.domain.Category;
 import com.plex.plexbackend.domain.Project;
 import com.plex.plexbackend.repository.ProjectRepository;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -17,7 +14,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
 @Component
-public class MyRunner implements CommandLineRunner {
+public class DataSeederApiDex implements CommandLineRunner {
 
   @Autowired
   private ProjectRepository projectRepository;
@@ -43,11 +40,15 @@ public class MyRunner implements CommandLineRunner {
       int id = jsonProject.getInt("id");
       String name = jsonProject.getString("name");
       String shortdes = jsonProject.getString("shortDescription");
-//     String categories = jsonProject.getString("categories");
+      JSONObject user = jsonProject.getJSONObject("user");
+      String uploader = user.getString("name");
+      JSONObject categories = jsonProject.getJSONObject("categories");
+
 
       project.setId((long) id);
       project.setTitle(name);
       project.setShortDescription(shortdes);
+      project.setUploader(uploader);
 
       projectRepository.save(project);
 
