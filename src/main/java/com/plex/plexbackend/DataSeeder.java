@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Component
-public class DataSeederApiDex implements CommandLineRunner {
+public class DataSeeder implements CommandLineRunner {
 
   @Autowired
   private ProjectRepository projectRepository;
@@ -43,9 +43,7 @@ public class DataSeederApiDex implements CommandLineRunner {
     var response = client.send(request, HttpResponse.BodyHandlers.ofString());
     String rawJson = response.body();
 
-    JSONObject responseBody = new JSONObject(rawJson);
-
-    return responseBody;
+    return new JSONObject(rawJson);
   }
   public JSONArray gettingJsonCategoriesFromApiDex() throws IOException, InterruptedException {
 
@@ -57,9 +55,7 @@ public class DataSeederApiDex implements CommandLineRunner {
     var response = client.send(request, HttpResponse.BodyHandlers.ofString());
     String rawJson = response.body();
 
-    JSONArray responseBody = new JSONArray(rawJson);
-
-    return responseBody;
+    return new JSONArray(rawJson);
   }
 
   private void addingProjectsToDb() throws IOException, InterruptedException {
@@ -72,29 +68,31 @@ public class DataSeederApiDex implements CommandLineRunner {
       JSONObject jsonProject = projects.getJSONObject(i);
       int id = jsonProject.getInt("id");
       String name = jsonProject.getString("name");
-      String shortdes = jsonProject.getString("shortDescription");
+      String shortDes = jsonProject.getString("shortDescription");
       JSONObject user = jsonProject.getJSONObject("user");
       String uploader = user.getString("name");
 
       //Category
       Set<Category> category = new HashSet<>();
-      JSONArray catg = jsonProject.getJSONArray("categories");
-      for (int y = 0; y < catg.length(); y++) {
-        JSONObject catobject = catg.getJSONObject(y);
-        Category category1 = new Category();
-        int catId = catobject.getInt("id");
-        category1.setId((long) catId);
-        category.add(category1);
-        project.setCategories(category);
+      JSONArray cat = jsonProject.getJSONArray("categories");
+      if(cat != null) {
+        for (int y = 0; y < cat.length(); y++) {
+          JSONObject catObject = cat.getJSONObject(y);
+          Category category1 = new Category();
+          int catId = catObject.getInt("id");
+          category1.setId((long) catId);
+          category.add(category1);
+          project.setCategories(category);
+        }
 
-        //Set project
-        project.setId((long) id);
-        project.setTitle(name);
-        project.setShortDescription(shortdes);
-        project.setUploader(uploader);
+          //Set project
+          project.setId((long) id);
+          project.setTitle(name);
+          project.setShortDescription(shortDes);
+          project.setUploader(uploader);
 
-        //Save to DB
-        projectRepository.save(project);
+          //Save to DB
+          projectRepository.save(project);
       }
     }
   }

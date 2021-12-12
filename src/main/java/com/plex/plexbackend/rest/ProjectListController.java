@@ -1,6 +1,5 @@
 package com.plex.plexbackend.rest;
 
-import com.plex.plexbackend.domain.Project;
 import com.plex.plexbackend.domain.ProjectList;
 import com.plex.plexbackend.service.ProjectListService;
 import org.springframework.beans.factory.annotation.Autowired;
