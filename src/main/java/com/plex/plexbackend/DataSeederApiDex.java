@@ -2,6 +2,7 @@ package com.plex.plexbackend;
 
 import com.plex.plexbackend.domain.Category;
 import com.plex.plexbackend.domain.Project;
+import com.plex.plexbackend.repository.CategoryRepository;
 import com.plex.plexbackend.repository.ProjectRepository;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -23,13 +24,17 @@ public class DataSeederApiDex implements CommandLineRunner {
   @Autowired
   private ProjectRepository projectRepository;
 
+  @Autowired
+  private CategoryRepository categoryRepository;
+
   @Override
   public void run(String... args) throws IOException, InterruptedException {
-    AddingDatabaseFromDexApi();
+    addingProjectsToDb();
+    addingCategorysToDb();
   }
 
-  public void AddingDatabaseFromDexApi() throws IOException, InterruptedException {
-    //Projects loading and adding to database
+  public JSONObject gettingJsonProjectsFromApiDex() throws IOException, InterruptedException {
+
     var client = HttpClient.newHttpClient();
     var request = HttpRequest.newBuilder(
             URI.create("https://api.dex.software/api/project"))
@@ -38,44 +43,73 @@ public class DataSeederApiDex implements CommandLineRunner {
     var response = client.send(request, HttpResponse.BodyHandlers.ofString());
     String rawJson = response.body();
 
-    JSONObject root = new JSONObject(rawJson);
+    JSONObject responseBody = new JSONObject(rawJson);
 
+    return responseBody;
+  }
+  public JSONArray gettingJsonCategoriesFromApiDex() throws IOException, InterruptedException {
 
+    var client = HttpClient.newHttpClient();
+    var request = HttpRequest.newBuilder(
+            URI.create("https://api.dex.software/api/category"))
+        .GET()
+        .build();
+    var response = client.send(request, HttpResponse.BodyHandlers.ofString());
+    String rawJson = response.body();
 
+    JSONArray responseBody = new JSONArray(rawJson);
 
-    JSONArray projects = root.getJSONArray("results");
+    return responseBody;
+  }
 
+  private void addingProjectsToDb() throws IOException, InterruptedException {
+    JSONObject responseBody = gettingJsonProjectsFromApiDex();
+    Project project = new Project();
+    JSONArray projects = responseBody.getJSONArray("results");
+
+      //Project
     for (int i = 0; i < projects.length(); i++) {
       JSONObject jsonProject = projects.getJSONObject(i);
-      Project project = new Project();
       int id = jsonProject.getInt("id");
       String name = jsonProject.getString("name");
       String shortdes = jsonProject.getString("shortDescription");
       JSONObject user = jsonProject.getJSONObject("user");
       String uploader = user.getString("name");
 
+      //Category
       Set<Category> category = new HashSet<>();
       JSONArray catg = jsonProject.getJSONArray("categories");
       for (int y = 0; y < catg.length(); y++) {
         JSONObject catobject = catg.getJSONObject(y);
         Category category1 = new Category();
         int catId = catobject.getInt("id");
-        String catName = catobject.getString("name");
         category1.setId((long) catId);
-        category1.setName(catName);
         category.add(category1);
         project.setCategories(category);
+
+        //Set project
+        project.setId((long) id);
+        project.setTitle(name);
+        project.setShortDescription(shortdes);
+        project.setUploader(uploader);
+
+        //Save to DB
+        projectRepository.save(project);
       }
-
-      project.setId((long) id);
-      project.setTitle(name);
-      project.setShortDescription(shortdes);
-      project.setUploader(uploader);
-
-      projectRepository.save(project);
-
     }
+  }
 
+  private void addingCategorysToDb() throws IOException, InterruptedException {
+    Category category = new Category();
+    JSONArray categories = gettingJsonCategoriesFromApiDex();
+    for(int i = 0; i < categories.length(); i++){
+      JSONObject catObject = categories.getJSONObject(i);
+      int id = catObject.getInt("id");
+      String name = catObject.getString("name");
+      category.setId((long) id);
+      category.setName(name);
+      categoryRepository.save(category);
+    }
   }
 }
 
