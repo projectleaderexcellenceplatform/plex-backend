@@ -19,16 +19,15 @@ public class CategoryController {
   @Autowired
   private CategoryService categoryService;
 
-
   @CrossOrigin
   @GetMapping("/category")
-  public List<Category> getCategory(){
+  public List<Category> getCategory() {
     return categoryService.findAllCategorys();
   }
 
   @CrossOrigin
   @GetMapping("/category/{id}")
-  public Optional<Category> getCategoryById(@PathVariable("id") String id){
+  public Optional<Category> getCategoryById(@PathVariable("id") String id) {
     return categoryService.findCategoryById(id);
   }
 }
