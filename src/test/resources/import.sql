@@ -1,0 +1,1 @@
+insert into project(id,title) values (1, 'testprojectinH2');
