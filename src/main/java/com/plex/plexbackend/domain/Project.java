@@ -1,5 +1,6 @@
 package com.plex.plexbackend.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,8 +24,11 @@ public class Project {
   private String shortDescription;
   private String uploader;
 
-
   @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   private Set<Category> categories;
+
+  @ManyToMany(mappedBy = "projects")
+  @JsonIgnore
+  private Set<ProjectList> projectLists;
 
 }

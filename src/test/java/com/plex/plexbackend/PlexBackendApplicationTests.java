@@ -1,6 +1,7 @@
 package com.plex.plexbackend;
 
 import com.plex.plexbackend.domain.Project;
+import com.plex.plexbackend.service.ProjectListService;
 import com.plex.plexbackend.service.ProjectService;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -17,9 +18,15 @@ class PlexBackendApplicationTests {
   @Autowired
   ProjectService projectService;
 
+  @Autowired
+  ProjectListService projectListService;
+
   @Test
   void contextLoads() {
     List<Project> list = projectService.findAllProjects();
+
+    List<Project> listje = projectListService.findLatest();
   }
+
 
 }

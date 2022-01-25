@@ -32,6 +32,4 @@ public class ProjectController {
     return projectService.findProjectsById(id);
   }
 
-
-
 }

@@ -1,12 +1,16 @@
 package com.plex.plexbackend.service;
 
+import com.plex.plexbackend.domain.Project;
 import com.plex.plexbackend.domain.ProjectList;
 import com.plex.plexbackend.repository.ProjectListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ProjectListService {
@@ -24,6 +28,14 @@ public class ProjectListService {
 
   public void makeNewProjectList(ProjectList projectList) {
     projectListRepository.save(projectList);
+  }
+
+  public List<Project> findLatest(){
+    return projectListRepository.findAll()
+        .stream()
+        .max(Comparator.comparing(ProjectList::getId))
+        .map(ProjectList::getProjects)
+        .orElse(Collections.emptySet()).stream().collect(Collectors.toList());
   }
 
 }
