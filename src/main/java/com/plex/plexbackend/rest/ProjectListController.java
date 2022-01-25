@@ -1,5 +1,6 @@
 package com.plex.plexbackend.rest;
 
+import com.plex.plexbackend.domain.Project;
 import com.plex.plexbackend.domain.ProjectList;
 import com.plex.plexbackend.service.ProjectListService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +37,11 @@ public class ProjectListController {
   @GetMapping("/projectlist/{id}")
   public Optional<ProjectList> getProjectById(@PathVariable("id") String id) {
     return projectListService.findProjectListById(id);
+  }
+
+  @CrossOrigin
+  @GetMapping("/projectlist/latest")
+  public List<Project> getLatestProjectList() {
+    return projectListService.findLatest();
   }
 }
