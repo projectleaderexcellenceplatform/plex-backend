@@ -1,14 +1,14 @@
 package com.plex.plexbackend;
 
 import com.plex.plexbackend.domain.Project;
+import com.plex.plexbackend.domain.ProjectList;
 import com.plex.plexbackend.service.ProjectListService;
 import com.plex.plexbackend.service.ProjectService;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @SpringBootTest(properties = {
@@ -25,7 +25,11 @@ class PlexBackendApplicationTests {
   void contextLoads() {
     List<Project> list = projectService.findAllProjects();
 
-    List<Project> listje = projectListService.findLatest();
+    List<ProjectList> allProjectList = projectListService.findAllProjectsList();
+
+    List<Project> latestProjectList = projectListService.findLatest();
+    System.out.println("klaar");
+
   }
 
 
