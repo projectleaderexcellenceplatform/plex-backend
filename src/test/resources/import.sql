@@ -14,4 +14,4 @@ insert into project_list(id,title) values (1, 'Projectlijstnaam1');
 
 
 -- Project_list_projects
-insert into project_list_projects(project_lists_id, projects_id) values (1, 5);
+insert into project_list_projects(project_lists_id, projects_id) values (1, 2);
