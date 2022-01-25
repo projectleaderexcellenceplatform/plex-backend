@@ -9,5 +9,9 @@ insert into project(id,title,short_description,uploader) values (7,'Project7','O
 insert into project(id,title,short_description,uploader) values (8,'Project8','Omschrijving8','uploader8');
 insert into project(id,title,short_description,uploader) values (9,'Project9','Omschrijving9','uploader9');
 
--- Projectlists
-insert into project_list(id,title) values (1, 'title')
+-- Project_list
+insert into project_list(id,title) values (1, 'Projectlijstnaam1');
+
+
+-- Project_list_projects
+insert into project_list_projects(project_lists_id, projects_id) values (1, 5);

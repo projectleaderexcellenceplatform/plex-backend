@@ -24,7 +24,10 @@ class PlexBackendApplicationTests {
   void contextLoads() {
     List<Project> list = projectService.findAllProjects();
 
-    List<ProjectList> projectList = projectListService.findAllProjectsList();
+    List<ProjectList> allProjectList = projectListService.findAllProjectsList();
+
+    List<Project> latestProjectList = projectListService.findLatest();
+    System.out.println("klaar");
 
   }
 
