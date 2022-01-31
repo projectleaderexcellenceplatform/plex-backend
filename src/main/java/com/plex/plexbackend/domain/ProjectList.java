@@ -26,7 +26,7 @@ public class ProjectList {
   @Column
   private String title;
 
-  @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE})
+  @ManyToMany
   private Set<Project> projects;
 
 }
