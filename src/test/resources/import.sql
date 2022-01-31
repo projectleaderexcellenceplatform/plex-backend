@@ -9,8 +9,14 @@ insert into project(id,title,short_description,uploader) values (7,'Project7','O
 insert into project(id,title,short_description,uploader) values (8,'Project8','Omschrijving8','uploader8');
 insert into project(id,title,short_description,uploader) values (9,'Project9','Omschrijving9','uploader9');
 
+--Category
+insert into category(id, name) values (1, 'UX/UI')
+
+--Project_categories
+-- insert into project_categories(project_id, categories_id) values (1, 1);
+
 -- Project_list
-insert into project_list(id,title) values (1, 'Projectlijstnaam1');
+insert into project_list(title) values ('Projectlijstnaam1');
 
 -- Project_list_projects
 insert into project_list_projects (project_list_id, projects_id) values (1, 1);

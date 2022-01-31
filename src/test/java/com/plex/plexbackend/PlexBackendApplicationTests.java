@@ -13,6 +13,7 @@ import java.util.List;
 
 @SpringBootTest(properties = {
     "command.line.runner.enabled=false"})
+@Transactional
 class PlexBackendApplicationTests {
 
   @Autowired

@@ -6,6 +6,7 @@ import com.plex.plexbackend.repository.ProjectListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -30,16 +31,6 @@ public class ProjectListService {
   }
 
   public void makeNewProjectList(ProjectList projectList) {
-//    Set<Project> projectSet = new HashSet<>();
-//    Project project = new Project();
-//    project.setId(23L);
-//    projectSet.add(project);
-//
-//  ProjectList projectList1 = new ProjectList();
-//  projectList1.setTitle("naampie");
-//  projectList1.setProjects(projectSet);
-//  projectListRepository.save(projectList1);
-
     projectListRepository.save(projectList);
   }
 

@@ -27,7 +27,7 @@ public class Project {
   @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   private Set<Category> categories;
 
-  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  @ManyToMany
   @JsonIgnore
   private Set<ProjectList> projectLists;
 
