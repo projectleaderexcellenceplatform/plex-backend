@@ -31,7 +31,7 @@ public class ProjectListServiceTest {
     project.setShortDescription("Supergave test");
     projectSet.add(project);
     projectListAssert.setProjects(projectSet);
-    projectListAssert.setName("Projectlijsttest");
+    projectListAssert.setTitle("Projectlijsttest");
 
     List<ProjectList> projectListBeforeAdding = projectListService.findAllProjectsList();
 
@@ -54,7 +54,7 @@ public class ProjectListServiceTest {
     project.setShortDescription("Supergave test");
     projectSet.add(project);
     projectListAssert.setProjects(projectSet);
-    projectListAssert.setName("Projectlijsttest");
+    projectListAssert.setTitle("Projectlijsttest");
 
     List<ProjectList> projectListBeforeAdding = projectListService.findAllProjectsList();
 

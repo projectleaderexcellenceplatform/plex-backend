@@ -23,7 +23,7 @@ public class ProjectList {
   private Long id;
 
   @Column
-  private String name;
+  private String title;
 
   @ManyToMany
   private Set<Project> projects;

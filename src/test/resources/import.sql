@@ -11,12 +11,27 @@ insert into project(id,title,short_description,uploader) values (9,'Project9','O
 
 --Category
 insert into category(id, name) values (1, 'UX/UI')
+insert into category(id, name) values (2, 'Video')
+insert into category(id, name) values (3, 'Code')
+insert into category(id, name) values (4, 'Research')
+insert into category(id, name) values (5, 'Concept')
 
 --Project_categories
--- insert into project_categories(project_id, categories_id) values (1, 1);
+insert into project_categories(project_id, categories_id) values (1, 1);
+insert into project_categories(project_id, categories_id) values (2, 2);
+insert into project_categories(project_id, categories_id) values (3, 3);
+insert into project_categories(project_id, categories_id) values (4, 4);
+insert into project_categories(project_id, categories_id) values (5, 5);
+insert into project_categories(project_id, categories_id) values (6, 6);
 
 -- Project_list
 insert into project_list(title) values ('Projectlijstnaam1');
+insert into project_list(title) values ('Projectlijstnaam2');
 
 -- Project_list_projects
 insert into project_list_projects (project_list_id, projects_id) values (1, 1);
+insert into project_list_projects (project_list_id, projects_id) values (1, 2);
+insert into project_list_projects (project_list_id, projects_id) values (1, 3);
+insert into project_list_projects (project_list_id, projects_id) values (1, 4);
+insert into project_list_projects (project_list_id, projects_id) values (2, 1);
+insert into project_list_projects (project_list_id, projects_id) values (2, 7);
