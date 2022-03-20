@@ -42,35 +42,4 @@ public class ProjectListServiceTest {
     //Assert
     Assertions.assertEquals(projectListBeforeAdding.size()+1, fullProjectList.size());
   }
-
-  @Test
-  void checkIfLatestProjectListIsReturned() {
-    //Arrange
-    ProjectList projectListAssert = new ProjectList();
-    Set<Project> projectSet = new HashSet<>();
-    Project project = new Project();
-    project.setId(3L);
-    project.setTitle("Testendetestproject");
-    project.setShortDescription("Supergave test");
-    projectSet.add(project);
-    projectListAssert.setProjects(projectSet);
-    projectListAssert.setTitle("Projectlijsttest");
-
-    List<ProjectList> projectListBeforeAdding = projectListService.findAllProjectsList();
-
-    //Act
-    projectListService.makeNewProjectList(projectListAssert);
-    List<Project> latestProjectList = projectListService.findLatest();
-    List<ProjectList> fullProjectList = projectListService.findAllProjectsList();
-
-    //Assert
-    Assertions.assertEquals(project.getTitle(), latestProjectList.get(0).getTitle());
-    Assertions.assertEquals(project.getId(), latestProjectList.get(0).getId());
-    Assertions.assertEquals(project.getShortDescription(), latestProjectList.get(0).getShortDescription());
-    Assertions.assertNotNull(latestProjectList);
-    Assertions.assertEquals(projectListBeforeAdding.size()+1, fullProjectList.size());
   }
-
-
-
-}

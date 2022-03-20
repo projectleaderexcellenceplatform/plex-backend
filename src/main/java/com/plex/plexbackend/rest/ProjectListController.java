@@ -39,9 +39,5 @@ public class ProjectListController {
     return projectListService.findProjectListById(id);
   }
 
-  @CrossOrigin
-  @GetMapping("/projectlist/latest")
-  public List<Project> getLatestProjectList() {
-    return projectListService.findLatest();
-  }
 }
+
