@@ -9,6 +9,13 @@ insert into project(id,title,short_description,uploader) values (7,'Project7','O
 insert into project(id,title,short_description,uploader) values (8,'Project8','Omschrijving8','uploader8');
 insert into project(id,title,short_description,uploader) values (9,'Project9','Omschrijving9','uploader9');
 
+--Category
+insert into category(id, name) values (1, 'UX/UI')
+    insert into category(id, name) values (2, 'Video')
+insert into category(id, name) values (3, 'Code')
+insert into category(id, name) values (4, 'Research')
+insert into category(id, name) values (5, 'Concept')
+
 --Project_categories
 insert into project_categories(project_id, categories_id) values (1, 1);
 insert into project_categories(project_id, categories_id) values (2, 2);
