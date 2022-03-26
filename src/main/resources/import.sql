@@ -31,9 +31,9 @@ insert into project_list(title) values ('Projectlijstnaam1');
 insert into project_list(title) values ('Projectlijstnaam2');
 
 -- Project_list_projects
-insert into project_list_projects (project_list_id, projects_id) values (1, 1);
-insert into project_list_projects (project_list_id, projects_id) values (1, 2);
-insert into project_list_projects (project_list_id, projects_id) values (1, 3);
-insert into project_list_projects (project_list_id, projects_id) values (1, 4);
 insert into project_list_projects (project_list_id, projects_id) values (2, 1);
-insert into project_list_projects (project_list_id, projects_id) values (2, 7);
+insert into project_list_projects (project_list_id, projects_id) values (2, 2);
+insert into project_list_projects (project_list_id, projects_id) values (2, 3);
+insert into project_list_projects (project_list_id, projects_id) values (2, 4);
+insert into project_list_projects (project_list_id, projects_id) values (1, 1);
+insert into project_list_projects (project_list_id, projects_id) values (1, 7);
