@@ -26,6 +26,7 @@ import java.util.Set;
     value = "enabled",
     havingValue = "true",
     matchIfMissing = true)
+
 @Component
 public class DataSeeder implements CommandLineRunner {
 
