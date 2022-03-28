@@ -28,6 +28,7 @@ public class ProjectListController {
     return projectListService.findAllProjectsList();
   }
 
+  @CrossOrigin
   @PostMapping(path = "/projectlist/add", consumes = { "application/json" })
   public void saveProjectList(@RequestBody ProjectList projectList) {
     projectListService.makeNewProjectList(projectList);
