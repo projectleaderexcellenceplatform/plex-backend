@@ -3,6 +3,8 @@ package com.plex.plexbackend.rest;
 import com.plex.plexbackend.domain.Choices;
 import com.plex.plexbackend.domain.Project;
 import com.plex.plexbackend.domain.ProjectList;
+import com.plex.plexbackend.repository.ChoicesRepository;
+import com.plex.plexbackend.service.ChoiceService;
 import com.plex.plexbackend.service.ProjectListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,31 +20,15 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "api/v1")
-public class ProjectListController {
+public class ChoicesController {
 
-  @Autowired
-  private ProjectListService projectListService;
+    @Autowired
+    private ChoiceService ChoiceService;
 
-  @CrossOrigin
-  @GetMapping("/projectlist")
-  public List<ProjectList> getProjects() {
-    return projectListService.findAllProjectsList();
-  }
+    @CrossOrigin
+    @PostMapping(path = "/choices/choices", consumes = { "application/json" })
+    public void saveChoices(@RequestBody Choices choices) {
+        ChoiceService.makeNewChoice(choices);
 
-  @PostMapping(path = "/projectlist/add", consumes = { "application/json" })
-  public void saveProjectList(@RequestBody ProjectList projectList) {
-    projectListService.makeNewProjectList(projectList);
-  }
-
-  @CrossOrigin
-  @GetMapping("/projectlist/{id}")
-  public Optional<ProjectList> getProjectById(@PathVariable("id") String id) {
-    return projectListService.findProjectListById(id);
-  }
-
-  @CrossOrigin
-  @GetMapping("/projectlist/latest")
-  public List<Project> getLatestProjectList() {
-    return projectListService.findLatest();
-  }
+        }
 }
