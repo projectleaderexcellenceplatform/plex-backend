@@ -14,7 +14,7 @@ public class StudentService {
   StudentRepository studentRepository;
 
   public List<Student> findAllStudents() {
-    return null;
+    return studentRepository.findAll();
   }
 
   public void addStudentChoice(Student student) {
