@@ -8,6 +8,7 @@ import org.hibernate.mapping.Array;
 import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -19,8 +20,7 @@ public class Choices {
     @Column
     private Long StudentId;
 
-    @CollectionTable
-    @Transient
-    private Array Choices;
+    @ElementCollection
+    private Set<String> Choices;
 
 }
