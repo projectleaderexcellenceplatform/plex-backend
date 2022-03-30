@@ -11,7 +11,7 @@ insert into project(id,title,short_description,uploader) values (9,'Project9','O
 
 --Category
 insert into category(id, name) values (1, 'UX/UI')
-    insert into category(id, name) values (2, 'Video')
+insert into category(id, name) values (2, 'Video')
 insert into category(id, name) values (3, 'Code')
 insert into category(id, name) values (4, 'Research')
 insert into category(id, name) values (5, 'Concept')
