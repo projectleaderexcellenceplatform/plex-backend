@@ -1,7 +1,7 @@
 package com.plex.plexbackend.rest;
 
-import com.plex.plexbackend.domain.Student;
-import com.plex.plexbackend.service.StudentService;
+import com.plex.plexbackend.domain.Choice;
+import com.plex.plexbackend.service.ChoiceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,20 +14,20 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1")
-public class StudentController {
+public class ChoiceController {
 
   @Autowired
-  private StudentService studentService;
+  private ChoiceService choiceService;
 
   @CrossOrigin
   @GetMapping("/student")
-  public List<Student> getStudents(){
-    return studentService.findAllStudents();
+  public List<Choice> getStudents(){
+    return choiceService.findAllStudents();
   }
 
   @CrossOrigin
   @PostMapping(path="/student/choice", consumes = {"application/json"})
-  public void saveStudentChoice(@RequestBody Student student) {
-    studentService.addStudentChoice(student);
+  public void saveStudentChoice(@RequestBody Choice choice) {
+    choiceService.addStudentChoice(choice);
   }
 }

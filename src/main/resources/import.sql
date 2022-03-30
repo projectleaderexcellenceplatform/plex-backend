@@ -23,6 +23,9 @@ insert into project_categories(project_id, categories_id) values (3, 3);
 insert into project_categories(project_id, categories_id) values (4, 4);
 insert into project_categories(project_id, categories_id) values (5, 5);
 
+--Student
+insert into student(student_id, name) values(1, 'TestPiet');
+
 
 
 

@@ -4,13 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -19,13 +14,7 @@ import java.util.Set;
 public class Student {
 
   @Id
-  private Long id;
-  private Long choice;
+  private Long studentId;
 
-  @ManyToOne
-  private Project project;
-
-  @ManyToOne
-  private ProjectList projectList;
-
+  private String name;
 }
