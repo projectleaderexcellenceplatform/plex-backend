@@ -43,7 +43,6 @@ public class ProjectListServiceTest {
     Assertions.assertEquals(projectListBeforeAdding.size()+1, fullProjectList.size());
   }
 
-
   @Test
   void checkIfLatestProjectListIsReturned() {
     //Arrange
