@@ -22,7 +22,7 @@ insert into project_categories(project_id, categories_id) values (2, 2);
 insert into project_categories(project_id, categories_id) values (3, 3);
 insert into project_categories(project_id, categories_id) values (4, 4);
 insert into project_categories(project_id, categories_id) values (5, 5);
-insert into project_categories(project_id, categories_id) values (6, 6);
+insert into project_categories(project_id, categories_id) values (6, 5);
 
 -- Project_list
 insert into project_list(title) values ('Projectlijstnaam1');
@@ -35,3 +35,9 @@ insert into project_list_projects (project_list_id, projects_id) values (1, 3);
 insert into project_list_projects (project_list_id, projects_id) values (1, 4);
 insert into project_list_projects (project_list_id, projects_id) values (2, 1);
 insert into project_list_projects (project_list_id, projects_id) values (2, 7);
+
+-- Student
+insert into student (student_id, name) values (1, 'Piet');
+
+-- Choice
+insert into choice (choice, project_id, project_list_id, student_student_id) values (1, 1, 1, 1);
