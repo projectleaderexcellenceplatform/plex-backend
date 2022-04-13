@@ -1,7 +1,9 @@
 # PlexBackend
+![workflow](https://github.com/projectleaderexcellenceplatform/plex-backend/workflows/tests/badge.svg)
+![GitHub issues](https://img.shields.io/github/issues/projectleaderexcellenceplatform/plex-backend)
+![GitHub issues-pr](https://img.shields.io/github/issues-pr/projectleaderexcellenceplatform/plex-backend)
 
-Deze repository bevat de backend voor het Plex Platform
-
+<h1 align="center">Hi 👋, We're the PLeX heroes</h1>
 
 ## What is Plex?
 The purpose of the PLeX (Project Leader eXcellence platform) dashboard is to increasingly support and unburden teachers in viewing projects and creating project lists. In addition, it is important that students can easily choose the top 3 of the projects offered in an overview, so that the project leader can see their preference.
