@@ -1,6 +1,8 @@
 # PlexBackend
 
-Deze repository bevat de backend voor het [Plex Platform]
+![workflow](https://github.com/projectleaderexcellenceplatform/plex-backend/workflows/tests/badge.svg)
+![GitHub issues](https://img.shields.io/github/issues/projectleaderexcellenceplatform/plex-backend)
+![GitHub issues-pr](https://img.shields.io/github/issues-pr/projectleaderexcellenceplatform/plex-backend)
 
 ## Quick Links
 
