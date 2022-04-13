@@ -16,7 +16,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(properties = {
     "command.line.runner.enabled=false"})
 @Transactional

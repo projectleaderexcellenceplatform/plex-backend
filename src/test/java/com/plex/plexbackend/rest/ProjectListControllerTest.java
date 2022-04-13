@@ -1,8 +1,9 @@
-package com.plex.plexbackend.service;
+package com.plex.plexbackend.rest;
 
 import com.plex.plexbackend.domain.Project;
 import com.plex.plexbackend.domain.ProjectList;
 import com.plex.plexbackend.rest.ProjectListController;
+import com.plex.plexbackend.service.ProjectListService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
