@@ -26,4 +26,13 @@ The purpose of the PLeX (Project Leader eXcellence platform) dashboard is to inc
 PLeX API can be found in the Swagger UI:
 [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
+## C4 Model
+### C1 Context
+![image](https://user-images.githubusercontent.com/63288282/164214853-71bb7a54-249c-43fb-95da-056f16967456.png)
+
+### C2 Containers
+![image](https://user-images.githubusercontent.com/63288282/164217116-2ba1b336-4e8a-4b0f-aaeb-8e05ca5508f8.png)
+
+### C3 Components
+![image](https://user-images.githubusercontent.com/63288282/164217175-abca51a1-e591-4d2a-a9c7-d490a5433d6f.png)
 
