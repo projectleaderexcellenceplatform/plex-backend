@@ -18,6 +18,17 @@ public class ChoiceService {
   }
 
   public void addStudentChoice(Choice choice) {
-    choiceRepository.save(choice);
+      long I = choiceRepository.countChoicesByProjectAndAndProjectList(choice.getProject(), choice.getProjectList());
+      if (I >0 ){
+        List<Choice> Keuzen = choiceRepository.getAllByProjectAndProjectList(choice.getProject(), choice.getProjectList());
+        for (var keuze: Keuzen) {
+          choiceRepository.deleteById(keuze.getId());
+        }
+      }
+      choiceRepository.save(choice);
+
   }
 }
+
+
+
