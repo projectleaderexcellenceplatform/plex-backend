@@ -14,4 +14,6 @@ public interface ChoiceRepository extends JpaRepository<Choice, Long> {
     Long countChoicesByProjectAndAndProjectList(Project project, ProjectList projectList);
 
     List <Choice> getAllByProjectAndProjectList(Project project, ProjectList projectList);
+
+    List <Choice> getAllByProjectList(String id);
 }
