@@ -1,6 +1,7 @@
 package com.plex.plexbackend.service;
 
 import com.plex.plexbackend.domain.Choice;
+import com.plex.plexbackend.domain.ProjectList;
 import com.plex.plexbackend.repository.ChoiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,10 @@ public class ChoiceService {
 
   public List<Choice> findAllStudents() {
     return choiceRepository.findAll();
+  }
+
+  public List<Choice> findAllStudentsFromProjectlist(String id){
+      return choiceRepository.getAllByProjectList(id);
   }
 
   public void addStudentChoice(Choice choice) {
